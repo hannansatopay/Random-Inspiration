@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css" />
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+  </body>
+  <script>
+    var settings = {
+      url: "https://api.quotable.io/random",
+      method: "GET"
+    };
+
+    $.ajax(settings).done(function(response) {
+      $("#content").html(response["content"]+" — "+response["author"]);
+	  var t = window.TrelloPowerUp.iframe();
+	  t.sizeTo('#content');
+    });
+    
+  </script>
+</html>
